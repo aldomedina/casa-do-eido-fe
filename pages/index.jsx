@@ -58,7 +58,7 @@ export default function Home() {
         </div>
       </section>
       {/* EXPERIENCIAS */}
-      <FolhasSection customClass="md:mb-36" hasBtn>
+      <FolhasSection customClass="mb-36" hasBtn>
         <h2 className="text-xl font-regular uppercase mb-10 text-center">
           {translate("experiencias")}
         </h2>
@@ -77,9 +77,10 @@ export default function Home() {
             title={translate("retiros")}
             content={translate("home-retiros-content")}
             img={casaImg}
-            imgCustomClass="mb-5 md:mb-0 md:mr-10 -mt-10 md:-mt-20"
+            imgCustomClass="md:flex-1 mb-5 md:mb-0 md:mr-10 -mt-10 md:-mt-20 min-h-50v"
+            contentWrapperCustomClass="md:flex-1"
             customClasses="md:flex-row py-0 items-end pb-10"
-            contentCustomClass=" md:w-3/5"
+            contentCustomClass="md:w-3/5"
           />
         </div>
       </section>

@@ -9,6 +9,7 @@ const HomeCard = ({
   customClasses,
   imgCustomClass,
   contentCustomClass,
+  contentWrapperCustomClass,
 }) => {
   return (
     <div className={"flex flex-col " + customClasses}>
@@ -16,7 +17,7 @@ const HomeCard = ({
         className={"w-full bg-cover bg-center h-40v md:h-60v " + imgCustomClass}
         style={{ backgroundImage: `url(${img})` }}
       />
-      <div>
+      <div className={contentWrapperCustomClass}>
         <h2 className="text-xl font-regular uppercase mb-5">{title}</h2>
         <p className={"md:w-3/4 text-md font-light mb-5 " + contentCustomClass}>
           {content}
