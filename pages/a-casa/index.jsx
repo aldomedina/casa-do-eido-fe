@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { GalleryContext } from "../../components/Layout";
 
 import FolhasSection from "../../components/FolhasSection";
 import translate from "../../i18n/translate";
@@ -7,11 +8,10 @@ import casa1 from "../../assets/img/casa/casa-1@2x.webp";
 import casa2 from "../../assets/img/casa/casa-2@2x.webp";
 import casa3 from "../../assets/img/casa/casa-3@2x.webp";
 import jardim1 from "../../assets/img/casa/jardim-1@2x.webp";
-import FullGallery from "../../components/FullGallery";
 
 const images = [casa1, casa2, casa3, jardim1];
 const ACasa = () => {
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const ctx = useContext(GalleryContext);
   return (
     <>
       <FolhasSection customClass="mb-20 md:mb-28">
@@ -25,7 +25,10 @@ const ACasa = () => {
         <div className="container md:max-w-65v">
           <CustomCarousel
             images={images}
-            onImageClick={() => setIsGalleryOpen(true)}
+            onImageClick={() => {
+              ctx.setName("a-casa");
+              ctx.setImages(images);
+            }}
           />
         </div>
       </section>
@@ -46,11 +49,6 @@ const ACasa = () => {
           </div>
         </div>
       </section>
-      <FullGallery
-        images={images}
-        isOpen={isGalleryOpen}
-        closeGallery={() => setIsGalleryOpen(false)}
-      />
     </>
   );
 };
