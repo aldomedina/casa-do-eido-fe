@@ -58,7 +58,7 @@ export default function Home() {
         </div>
       </section>
       {/* EXPERIENCIAS */}
-      <FolhasSection hasBtn>
+      <FolhasSection customClass="md:mb-36" hasBtn>
         <h2 className="text-xl font-regular uppercase mb-10 text-center">
           {translate("experiencias")}
         </h2>
