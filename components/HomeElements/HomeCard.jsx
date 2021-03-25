@@ -19,17 +19,21 @@ const HomeCard = ({
       />
       <div className={contentWrapperCustomClass}>
         <h2 className="text-xl font-regular uppercase mb-5">{title}</h2>
-        <p className={"md:w-3/4 text-md font-light mb-5 " + contentCustomClass}>
+        <div
+          className={"md:w-3/4 text-md font-light mb-5 " + contentCustomClass}
+        >
           {content}
-        </p>
-        <div>
-          <button
-            onClick={handleBtn}
-            className="btn  btn-outline text-xxs py-1 px-2"
-          >
-            {translate("btn-know-more")}
-          </button>
         </div>
+        {handleBtn && (
+          <div>
+            <button
+              onClick={handleBtn}
+              className="btn  btn-outline text-xxs py-1 px-2"
+            >
+              {translate("btn-know-more")}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

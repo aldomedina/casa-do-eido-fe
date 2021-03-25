@@ -42,6 +42,7 @@ export default function Home() {
       <section className="mb-36">
         <div className="bg-beige container flex full-w flex-col md:flex-row p-5 md:p-10 md:pt-20">
           <HomeCard
+            handleBtn={() => console.log("test")}
             title={translate("a-casa")}
             content={translate("home-a-casa-content")}
             img={casaImg}
@@ -49,6 +50,7 @@ export default function Home() {
             customClasses="flex-1 md:mr-10 md:-mt-32 mb-10 md:mb-0"
           />
           <HomeCard
+            handleBtn={() => console.log("test")}
             title={translate("acomodacoes")}
             content={translate("home-acomodacoes-content")}
             img={acomodacaoImg}
@@ -74,6 +76,7 @@ export default function Home() {
       <section className="mb-36">
         <div className="bg-beige container flex full-w flex-col md:flex-row px-5 md:px-10">
           <HomeCard
+            handleBtn={() => console.log("test")}
             title={translate("retiros")}
             content={translate("home-retiros-content")}
             img={casaImg}

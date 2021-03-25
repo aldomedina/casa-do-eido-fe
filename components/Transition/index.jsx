@@ -36,7 +36,6 @@ const Transition = ({ children, location }) => {
       >
         {status => (
           <div
-            className="hei"
             style={{
               ...getTransitionStyles[status],
             }}
