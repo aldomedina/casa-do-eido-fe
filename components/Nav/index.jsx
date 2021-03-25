@@ -15,7 +15,7 @@ function Nav() {
   const { height } = useWindowSize();
 
   return (
-    <div className="z-20	w-full fixed bg-white flex flex-col shadow-md">
+    <div className="z-20 top-0 left-0	w-full fixed bg-white flex flex-col shadow-md">
       <ul
         className="block lg:hidden transition-all duration-300 truncate px-4"
         style={{ height: isOpen ? height - 64 : 0 }}

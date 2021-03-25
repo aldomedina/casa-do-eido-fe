@@ -31,9 +31,14 @@ const CustomCarousel = ({ images, name, onImageClick, isFullGallery }) => {
           )
         }
       >
-        {images.map((el, i) => (
-          <img key={name + "-image-" + i} src={el} className="h-full w-full" />
-        ))}
+        {images &&
+          images.map((el, i) => (
+            <img
+              key={name + "-image-" + i}
+              src={el}
+              className="h-full w-full"
+            />
+          ))}
       </Carousel>
     </>
   );

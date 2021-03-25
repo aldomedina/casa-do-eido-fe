@@ -1,19 +1,21 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { GalleryContext } from "../Layout";
 import translate from "../../i18n/translate";
-import FullGallery from "../FullGallery";
 import CustomCarousel from "../CustomCarousel";
 
 const AcomodacoesCard = ({ item }) => {
   const { name, size, features, images } = item;
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
-
+  const ctx = useContext(GalleryContext);
   return (
     <div className="md:-ml-20 flex flex-col md:flex-row mb-10 p-5 md:p-0">
       <div className="flex-1 h-max mb-5 md:mb-0 md:mr-10">
         <CustomCarousel
           name={name}
           images={images}
-          onImageClick={() => setIsGalleryOpen(true)}
+          onImageClick={() => {
+            ctx.setName(name);
+            ctx.setImages(images);
+          }}
         />
       </div>
       <div className="flex-1">
@@ -28,12 +30,6 @@ const AcomodacoesCard = ({ item }) => {
           ))}
         </ul>
       </div>
-      <FullGallery
-        isOpen={isGalleryOpen}
-        images={images}
-        name={name}
-        closeGallery={() => setIsGalleryOpen(false)}
-      />
     </div>
   );
 };

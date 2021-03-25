@@ -7,7 +7,7 @@ import Layout from "../components/Layout";
 
 export const LangContext = createContext();
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
   const [locale, setLocale] = useState("pt");
   const selectLang = e => setLocale(e);
 
@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
     <LangContext.Provider value={{ locale, selectLang }}>
       <I18nProvider locale={LOCALES[locale]}>
         <Layout>
-          <Component {...pageProps} />
+          <Component {...pageProps} key={router.route} />
         </Layout>
       </I18nProvider>
     </LangContext.Provider>
