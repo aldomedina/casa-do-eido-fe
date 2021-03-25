@@ -10,7 +10,7 @@ const Acomodacoes = () => {
   return (
     <Layout>
       <FolhasSection customClass="mb-20 md:mb-36">
-        <h2 className="title text-center my-10 md:my-0 md:mb-5">
+        <h2 className="title text-center my-10 md:my-0 md:mb-10">
           {translate("acomodacoes")}
         </h2>
         <p className="text-md font-light mb-5">

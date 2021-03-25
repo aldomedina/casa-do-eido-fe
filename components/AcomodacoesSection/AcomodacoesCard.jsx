@@ -1,30 +1,7 @@
 import { useState } from "react";
 import translate from "../../i18n/translate";
-import { Carousel } from "react-responsive-carousel";
-import next from "../../assets/img/next.svg";
-import prev from "../../assets/img/prev.svg";
 import FullGallery from "../FullGallery";
 import CustomCarousel from "../CustomCarousel";
-
-const renderCustomArrow = (onClickHandler, label, icon, customPos) => (
-  <button
-    type="button"
-    onClick={onClickHandler}
-    title={label}
-    style={{
-      position: "absolute",
-      zIndex: 2,
-      top: "calc(50% - 15px)",
-      width: 30,
-      height: 30,
-      cursor: "pointer",
-
-      ...customPos,
-    }}
-  >
-    <img src={icon} className="h-12 w-6" />
-  </button>
-);
 
 const AcomodacoesCard = ({ item }) => {
   const { name, size, features, images } = item;

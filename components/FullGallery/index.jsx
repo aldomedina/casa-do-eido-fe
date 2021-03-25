@@ -22,7 +22,12 @@ const FullGallery = ({ isOpen, closeGallery, name, images }) => {
         </div>
         <div className="flex flex-1 items-center justify-center">
           <div className="md:max-w-70v">
-            <CustomCarousel name={name} images={images} isFullGallery />
+            <CustomCarousel
+              name={name}
+              images={images}
+              onImageClick={closeGallery}
+              isFullGallery
+            />
           </div>
         </div>
       </div>
