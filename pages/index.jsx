@@ -9,7 +9,7 @@ import FolhasSection from "../components/FolhasSection";
 
 export default function Home() {
   return (
-    <Layout>
+    <>
       {/* HERO */}
       <section className="bg-beige mb-24 md:mb-56">
         <div className="container flex flex-col md:flex-row h-90v md:h-70v p-5 md:px-10 md:py-0">
@@ -97,6 +97,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }

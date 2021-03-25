@@ -1,7 +1,5 @@
-import Layout from "../../components/Layout";
-
 const Termos = () => {
-  return <Layout>A casa</Layout>;
+  return <>A casa</>;
 };
 
 export default Termos;

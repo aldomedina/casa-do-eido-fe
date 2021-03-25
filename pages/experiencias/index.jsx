@@ -1,7 +1,5 @@
-import React from "react";
-import Layout from "../../components/Layout";
 const Experiencias = () => {
-  return <Layout>Experiencias</Layout>;
+  return <div>Experiencias</div>;
 };
 
 export default Experiencias;

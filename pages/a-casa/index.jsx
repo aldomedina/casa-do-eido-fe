@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Layout from "../../components/Layout";
+
 import FolhasSection from "../../components/FolhasSection";
 import translate from "../../i18n/translate";
 import CustomCarousel from "../../components/CustomCarousel";
@@ -13,7 +13,7 @@ const images = [casa1, casa2, casa3, jardim1];
 const ACasa = () => {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   return (
-    <Layout>
+    <>
       <FolhasSection customClass="mb-20 md:mb-28">
         <h2 className="title text-center my-10 md:my-0 md:mb-10">
           {translate("a-casa")}
@@ -51,7 +51,7 @@ const ACasa = () => {
         isOpen={isGalleryOpen}
         closeGallery={() => setIsGalleryOpen(false)}
       />
-    </Layout>
+    </>
   );
 };
 

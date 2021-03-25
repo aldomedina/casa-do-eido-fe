@@ -1,14 +1,14 @@
 import { useState } from "react";
 import AcomodacoesSection from "../../components/AcomodacoesSection";
 import FolhasSection from "../../components/FolhasSection";
-import Layout from "../../components/Layout";
+
 import translate from "../../i18n/translate";
 import acomodacoes_data from "../../content/acomodacoes";
 
 const Acomodacoes = () => {
   const [activeTab, setActiveTab] = useState(0);
   return (
-    <Layout>
+    <>
       <FolhasSection customClass="mb-20 md:mb-36">
         <h2 className="title text-center my-10 md:my-0 md:mb-10">
           {translate("acomodacoes")}
@@ -31,7 +31,7 @@ const Acomodacoes = () => {
             items={el.items}
           />
         ))}
-    </Layout>
+    </>
   );
 };
 

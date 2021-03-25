@@ -3,6 +3,7 @@ import { I18nProvider, LOCALES } from "../i18n";
 import "../styles/globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import Layout from "../components/Layout";
 
 export const LangContext = createContext();
 
@@ -13,7 +14,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <LangContext.Provider value={{ locale, selectLang }}>
       <I18nProvider locale={LOCALES[locale]}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </I18nProvider>
     </LangContext.Provider>
   );

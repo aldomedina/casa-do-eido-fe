@@ -1,6 +1,5 @@
-import Layout from "../../components/Layout";
 const Explore = () => {
-  return <Layout>Explore</Layout>;
+  return <div>Explore</div>;
 };
 
 export default Explore;
