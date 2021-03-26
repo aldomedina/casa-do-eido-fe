@@ -35,7 +35,7 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-1 items-center justify-end md:justify-center">
-            <h1 className="uppercase text-xxl md:text-xxxl text-right md:text-center font-light -mt-16 md:mt-28">
+            <h1 className="uppercase text-xxl md:text-xxxxl text-right md:text-center font-light -mt-16 md:mt-28">
               {translate("home-hero-title")}
               <br />
               <span>casa do eido!</span>

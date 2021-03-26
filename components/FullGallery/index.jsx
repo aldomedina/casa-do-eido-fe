@@ -9,7 +9,7 @@ const FullGallery = ({ isOpen, closeGallery, name, images }) => (
     <div className="flex flex-col h-full">
       <div className="px-10 py-5 absolute w-full z-20">
         <button
-          className="text-xxxl text-white font-extralight float-right"
+          className="text-xxxxl text-white font-extralight float-right"
           onClick={closeGallery}
         >
           X

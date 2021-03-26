@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 import translate from "../../i18n/translate";
 import { getMD } from "../../utils";
+import Link from "next/link";
 
 const RetiroCard = ({ item }) => {
-  const { img, title, subtitle, date, duration } = item;
+  const { img, title, subtitle, date_start, duration } = item;
   const [isPast, setIsPast] = useState(false);
   const [formattedDate, setFormattedDate] = useState("");
 
   useEffect(() => {
-    setIsPast(Date.now() - date > 0);
-    setFormattedDate(getMD(date));
-  }, [date]);
+    setIsPast(Date.now() - date_start > 0);
+    setFormattedDate(getMD(date_start));
+  }, [date_start]);
 
   return (
     <div className="flex flex-col">
       <div className="relative">
         <div
           style={{ backgroundImage: `url(${img})` }}
-          className="min-h-70v md:min-h-25v w-full bg-cover bg-center"
+          className="min-h-55v md:min-h-50v w-full bg-cover bg-center"
         />
         {isPast && (
           <span className="absolute bg-white top-1 right-1 px-4 py-1 uppercase text-xxs">
@@ -39,9 +40,11 @@ const RetiroCard = ({ item }) => {
             </span>
           </div>
           <div className="flex text-xxs md:text-xs">
-            <button className="btn btn-outline mr-2">
-              {translate("btn-know-more")}
-            </button>
+            <Link href="/retiros/test-blog-post">
+              <button className="btn btn-outline mr-2">
+                {translate("btn-know-more")}
+              </button>
+            </Link>
             <button className="btn btn-outline ">
               {translate("book-now")}
             </button>
