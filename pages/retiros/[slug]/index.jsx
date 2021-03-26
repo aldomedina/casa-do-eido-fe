@@ -65,11 +65,12 @@ const Retiro = () => {
           </div>
         </div>
       </section>
+      {/* SCHEDULE */}
       <section className="mb-10 md:mb-20">
         <div className="container p-0">
           <div className="p-5 md:p-0 md:w-5/12">
             <p className="font-light mb-5">{summary}</p>
-            <h2 className="title mb-5">Programa</h2>
+            <h2 className="title mb-5">{translate("programa")}</h2>
             {programa &&
               programa.length &&
               programa.map((el, i) => (

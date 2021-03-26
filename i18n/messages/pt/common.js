@@ -6,6 +6,8 @@ export default {
   "btn-know-more": "conheça mais",
   terminado: "terminado",
   dia: "dia",
+  programa: "programa",
+
   // menu
   "a-casa": "a casa",
   acomodacoes: "acomodações",
