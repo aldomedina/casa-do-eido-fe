@@ -1,10 +1,11 @@
 export default {
   newsletter: "INSCREVA-SE NA NOSSA NEWSLETTER",
-  bookNow: "Reserve já",
+  "book-now": "Reserve já",
   subscribe: "subscrever",
   "email-placeholder": "insira o seu email",
   "btn-know-more": "conheça mais",
-
+  terminado: "terminado",
+  dia: "dia",
   // menu
   "a-casa": "a casa",
   acomodacoes: "acomodações",

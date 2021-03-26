@@ -7,13 +7,13 @@
     @apply bg-beige bg-hero-pattern bg-cover bg-center bg-repeat-y;
   }
   .btn {
-    @apply px-4 py-2 uppercase;
+    @apply px-4 py-2 uppercase transition;
   }
   .btn-outline {
-    @apply border border-black;
+    @apply border border-black hover:shadow-inner-border;
   }
   .btn-white {
-    @apply bg-white;
+    @apply bg-white hover:bg-opacity-20;
   }
   .title {
     @apply text-xl font-medium uppercase;

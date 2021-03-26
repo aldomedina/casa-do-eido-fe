@@ -26,6 +26,7 @@ function Nav() {
             className={`uppercase  text-mobile-menu mr-5  ${
               router.pathname === item ? "font-bold" : "font-medium"
             } `}
+            onClick={() => setIsOpen(false)}
           >
             <Link href={"/" + item}>
               <a>{translate(item)}</a>
@@ -34,26 +35,28 @@ function Nav() {
         ))}
         <li className="mr-5">
           <button className="btn btn-outline border-4 mt-3 text-mobile-menu">
-            {translate("bookNow")}
+            {translate("book-now")}
           </button>
         </li>
         <LangControls customClass="text-xxl mt-3" />
       </ul>
       <div className="h-16 md:h-24 container flex justify-between items-center uppercase">
-        <Link href="/">
-          <div>
-            <img
-              className="hidden lg:block cursor-pointer max-w-sm xl:max-w-lg"
-              src={logo}
-              alt="logo"
-            />
-            <img
-              className="block lg:hidden cursor-pointer max-w-lg"
-              src={smallLogo}
-              alt="logo"
-            />
-          </div>
-        </Link>
+        <div onClick={() => setIsOpen(false)}>
+          <Link href="/">
+            <div>
+              <img
+                className="hidden lg:block cursor-pointer max-w-sm xl:max-w-lg"
+                src={logo}
+                alt="logo"
+              />
+              <img
+                className="block lg:hidden cursor-pointer max-w-lg"
+                src={smallLogo}
+                alt="logo"
+              />
+            </div>
+          </Link>
+        </div>
         <ul className="items-center flex">
           {menu_items.map((item, i) => (
             <li
@@ -73,7 +76,7 @@ function Nav() {
                 isOpen ? "opacity-0" : "opacity-100"
               }`}
             >
-              {translate("bookNow")}
+              {translate("book-now")}
             </button>
           </li>
           <li>

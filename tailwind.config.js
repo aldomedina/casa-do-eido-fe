@@ -11,6 +11,9 @@ module.exports = {
     },
 
     extend: {
+      boxShadow: {
+        "inner-border": "inset 0 0 0 1px rgba(0,0,0)",
+      },
       backgroundImage: theme => ({
         "hero-pattern": "url('/img/folhas.png')",
       }),
@@ -57,7 +60,20 @@ module.exports = {
       minHeight: {
         36: "9rem",
         48: "12rem",
+        "10v": "10vw",
+        "20v": "20vw",
+        "25v": "25vw",
+        "30v": "30vw",
+        "40v": "40vw",
+        "50v": "50vw",
+        "55v": "55vw",
         "60v": "60vw",
+        "65v": "65vw",
+        "70v": "70vw",
+        "75v": "75vw",
+        "80v": "80vw",
+        "90v": "90vw",
+        "100v": "100vw",
       },
       maxWidth: {
         "10v": "10vw",

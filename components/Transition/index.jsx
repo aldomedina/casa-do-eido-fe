@@ -9,18 +9,15 @@ const getTransitionStyles = {
   entering: {
     position: `absolute`,
     opacity: 0,
-    transform: `translateY(50px)`,
   },
   entered: {
     transition: `opacity ${TIMEOUT}ms ease-in-out, transform ${TIMEOUT}ms ease-in-out`,
     opacity: 1,
-    transform: `translateY(0px)`,
     animation: "blink .3s linear 2",
   },
   exiting: {
     transition: `opacity ${TIMEOUT}ms ease-in-out, transform ${TIMEOUT}ms ease-in-out`,
     opacity: 0,
-    transform: `translateY(-50px)`,
   },
 };
 

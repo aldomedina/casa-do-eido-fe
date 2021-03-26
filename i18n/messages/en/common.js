@@ -1,9 +1,11 @@
 export default {
   newsletter: "SUBSCRIBE TO OUR NEWSLETTER",
-  bookNow: "Book now",
+  "book-now": "Book now",
   subscribe: "Subscribe",
   "email-placeholder": "enter your email",
   "btn-know-more": "know more",
+  terminado: "finished",
+  dia: "day",
 
   // menu
   "a-casa": "the house",

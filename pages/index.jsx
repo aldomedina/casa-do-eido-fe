@@ -6,8 +6,11 @@ import casaImg from "../assets/img/casa@2x.webp";
 import acomodacaoImg from "../assets/img/acomodacao@2x.webp";
 import HomeCard from "../components/HomeElements/HomeCard";
 import FolhasSection from "../components/FolhasSection";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <>
       {/* HERO */}
@@ -23,9 +26,11 @@ export default function Home() {
                 {translate("home-hero-circle")}
               </h2>
               <div>
-                <button className="btn btn-outline text-xxs py-1 px-1">
-                  {translate("btn-know-more")}
-                </button>
+                <Link href="/retiros">
+                  <button className="btn btn-outline text-xxs py-1 px-1">
+                    {translate("btn-know-more")}
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -42,7 +47,7 @@ export default function Home() {
       <section className="mb-36">
         <div className="bg-beige container flex full-w flex-col md:flex-row p-5 md:p-10 md:pt-20">
           <HomeCard
-            handleBtn={() => console.log("test")}
+            handleBtn={() => router.push("/a-casa")}
             title={translate("a-casa")}
             content={translate("home-a-casa-content")}
             img={casaImg}
@@ -50,7 +55,7 @@ export default function Home() {
             customClasses="flex-1 md:mr-10 md:-mt-32 mb-10 md:mb-0"
           />
           <HomeCard
-            handleBtn={() => console.log("test")}
+            handleBtn={() => router.push("/acomodacoes")}
             title={translate("acomodacoes")}
             content={translate("home-acomodacoes-content")}
             img={acomodacaoImg}
@@ -60,7 +65,11 @@ export default function Home() {
         </div>
       </section>
       {/* EXPERIENCIAS */}
-      <FolhasSection customClass="mb-36" hasBtn>
+      <FolhasSection
+        customClass="mb-36"
+        hasBtn
+        handleButton={() => router.push("/experiencias")}
+      >
         <h2 className="text-xl font-regular uppercase mb-10 text-center">
           {translate("experiencias")}
         </h2>
@@ -76,7 +85,7 @@ export default function Home() {
       <section className="mb-36">
         <div className="bg-beige container flex full-w flex-col md:flex-row px-5 md:px-10">
           <HomeCard
-            handleBtn={() => console.log("test")}
+            handleBtn={() => router.push("/retiros")}
             title={translate("retiros")}
             content={translate("home-retiros-content")}
             img={casaImg}
