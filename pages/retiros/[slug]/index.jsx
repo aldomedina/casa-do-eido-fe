@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import mock_retiros from "../../../content/mock_retiros";
 import translate from "../../../i18n/translate";
 import Link from "next/link";
-import { getMD } from "../../../utils";
+import { getMD, getFormattedDDMM } from "../../../utils";
 
 const Retiro = () => {
   const {
@@ -10,6 +10,7 @@ const Retiro = () => {
     title,
     subtitle,
     date_start,
+    date_end,
     duration,
     price,
     summary,
@@ -17,7 +18,11 @@ const Retiro = () => {
   } = mock_retiros[0];
   const [formattedDate, setFormattedDate] = useState("");
   useEffect(() => {
-    setFormattedDate(getMD(date_start));
+    const final =
+      date_end && duration > 1
+        ? `${getMD(date_start)} - ${getMD(date_end)}`
+        : getMD(date_start);
+    setFormattedDate(final);
   }, [date_start]);
   return (
     <div>
@@ -66,12 +71,16 @@ const Retiro = () => {
               programa.length &&
               programa.map((el, i) => (
                 <div className="mb-5" key={title + "table" + i}>
-                  <h3 className="font-bold">{el.date}</h3>
+                  <h3 className="mb-2">{getFormattedDDMM(el.date, "pt")}</h3>
                   <table>
                     {el.schedule.map((item, trI) => (
                       <tr key={title + "table" + i + trI}>
-                        <td className="font-extralight pr-5">{item.time}</td>
-                        <td className="font-normal">{item.description}</td>
+                        <td className="font-thin align-top pr-5 whitespace-nowrap">
+                          {item.time}
+                        </td>
+                        <td className="font-light align-top">
+                          {item.description}
+                        </td>
                       </tr>
                     ))}
                   </table>

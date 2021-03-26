@@ -4,13 +4,18 @@ import { getMD } from "../../utils";
 import Link from "next/link";
 
 const RetiroCard = ({ item }) => {
-  const { img, title, subtitle, date_start, duration } = item;
+  const { img, title, subtitle, date_start, date_end, duration } = item;
   const [isPast, setIsPast] = useState(false);
   const [formattedDate, setFormattedDate] = useState("");
 
   useEffect(() => {
     setIsPast(Date.now() - date_start > 0);
-    setFormattedDate(getMD(date_start));
+
+    const final =
+      date_end && duration > 1
+        ? `${getMD(date_start)} — ${getMD(date_end)}`
+        : getMD(date_start);
+    setFormattedDate(final);
   }, [date_start]);
 
   return (
@@ -34,7 +39,7 @@ const RetiroCard = ({ item }) => {
         <div>
           <div className="flex mb-2">
             <span className="mr-5">{formattedDate}</span>
-            <span className="uppercase">
+            <span className="uppercase font-extralight">
               {duration} {translate("dia")}
               {duration > 1 ? "S" : ""}
             </span>

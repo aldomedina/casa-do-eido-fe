@@ -5,7 +5,7 @@ export default [
     title: "WORKSHOP CAFÉ",
     subtitle: "GEORGE CLOONEY",
     date_start: 1624703914000,
-    date_end: 1624703914000,
+    date_end: 1624903914000,
     duration: 3,
     img: coffee,
     price: 283,
@@ -13,7 +13,7 @@ export default [
       " A Casa do Eido - sustainable living & nature experiences vai acolher nos dias 23 a 25 de outubro o retiro Yoga of the Heart, destinado a trabalhar as emoções através do yoga. Este será um momento de aprendizagens e partilha e todos os níveis de experiência são bem vindos! As técnicas serão adaptadas às necessidades individuais.",
     programa: [
       {
-        date: 1,
+        date: 1624703914000,
         schedule: [
           { time: "15.00 - 17.00", description: "Recepção de boas vindas" },
           {
@@ -27,13 +27,14 @@ export default [
         ],
       },
       {
-        date: 2,
+        date: 1624803914000,
         schedule: [
           { time: "8.00 - 9.00", description: "Chá e biscoitos" },
           { time: "15.00 - 17.00", description: " Pequeno almoço" },
           {
             time: "15.00 - 17.00",
-            description: " Tempo livre (caminhada, piscina, leitura ...)",
+            description:
+              "Recepção de boas vindas Tempo livre (caminhada, piscina, leitura ...)",
           },
         ],
       },
@@ -43,7 +44,7 @@ export default [
     title: "RETIRO CERAMIC OF THE HEART",
     subtitle: "TOM CHAMBERS",
     date_start: 1621679914000,
-    date_end: 1621679914000,
+    date_end: 1622279914000,
     duration: 4,
     img: ceramic,
     price: 283,
@@ -115,7 +116,7 @@ export default [
     title: "PAST EVENT",
     subtitle: "PAST TEACHER",
     date_start: 1612262314000,
-    date_end: 1612262314000,
+    date_end: 1663472314000,
     duration: 3,
     img: coffee,
     price: 283,
