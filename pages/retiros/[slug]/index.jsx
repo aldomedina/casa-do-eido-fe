@@ -18,6 +18,7 @@ const Retiro = () => {
   } = mock_retiros[0];
   const [formattedDate, setFormattedDate] = useState("");
   const ctx = useContext(LangContext);
+
   useEffect(() => {
     const final =
       date_end && duration > 1
@@ -25,6 +26,7 @@ const Retiro = () => {
         : getMD(date_start);
     setFormattedDate(final);
   }, [date_start]);
+
   return (
     <div>
       {/* INTRO CARD */}
