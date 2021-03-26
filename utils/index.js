@@ -21,7 +21,7 @@ export function getFormattedDDMM(timestamp, lang) {
 
 export const days = {
   pt: ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"],
-  english: [
+  en: [
     "Monday",
     "Tuesday",
     "Wednesday",
@@ -47,7 +47,7 @@ export const months = {
     "Novembro",
     "Dezembro",
   ],
-  english: [
+  en: [
     "January",
     "February",
     "March",

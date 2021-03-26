@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import mock_retiros from "../../../content/mock_retiros";
 import translate from "../../../i18n/translate";
-import Link from "next/link";
 import { getMD, getFormattedDDMM } from "../../../utils";
+import { LangContext } from "../../_app";
 
 const Retiro = () => {
   const {
@@ -17,6 +17,7 @@ const Retiro = () => {
     programa,
   } = mock_retiros[0];
   const [formattedDate, setFormattedDate] = useState("");
+  const ctx = useContext(LangContext);
   useEffect(() => {
     const final =
       date_end && duration > 1
@@ -71,7 +72,9 @@ const Retiro = () => {
               programa.length &&
               programa.map((el, i) => (
                 <div className="mb-5" key={title + "table" + i}>
-                  <h3 className="mb-2">{getFormattedDDMM(el.date, "pt")}</h3>
+                  <h3 className="mb-2">
+                    {getFormattedDDMM(el.date, ctx.locale)}
+                  </h3>
                   <table>
                     {el.schedule.map((item, trI) => (
                       <tr key={title + "table" + i + trI}>
