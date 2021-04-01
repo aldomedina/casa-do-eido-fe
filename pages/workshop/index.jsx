@@ -1,10 +1,9 @@
 import RetiroCard from "../../components/RetiroCard";
-import mock_retiros from "../../content/mock_retiros";
 import sanity from "../../lib/sanity";
 import groq from "groq";
 export async function getStaticProps() {
   const query = groq`
-    *[_type == 'workshop'] {
+    *[_type == 'workshop'] | order(start_date desc) {
       mainImage, post_title, subtitle, start_date, end_date, duration, slug, url
     }
   `;
