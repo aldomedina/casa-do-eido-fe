@@ -1,31 +1,69 @@
 import { useState, useEffect, useContext } from "react";
-import mock_retiros from "../../../content/mock_retiros";
-import translate from "../../../i18n/translate";
-import { getMD, getFormattedDDMM } from "../../../utils";
-import { LangContext } from "../../_app";
+import ErrorPage from "next/error";
+import groq from "groq";
+import BlockContent from "@sanity/block-content-to-react";
 
-const Retiro = () => {
+import translate from "../../../i18n/translate";
+import { getMD, urlFor } from "../../../utils";
+import { LangContext } from "../../_app";
+import sanity from "../../../lib/sanity";
+
+export async function getStaticPaths() {
+  const query = groq` 
+    *[_type == "workshop" && defined(slug.current)][].slug.current
+  `;
+  const paths = await sanity.fetch(query);
+  return {
+    paths: paths.map(slug => ({ params: { slug } })),
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const { slug } = params;
+  const query = groq`
+    *[_type=='workshop' && slug.current == '${slug}'][0]
+  `;
+  const data = await sanity.fetch(query);
+  return {
+    props: {
+      workshop: data,
+    },
+  };
+}
+
+const Retiro = ({ workshop }) => {
+  // handle 404
+  const slug = workshop?.slug;
+  if (!slug) {
+    return <ErrorPage statusCode={404} />;
+  }
+
   const {
-    img,
-    title,
-    subtitle,
-    date_start,
-    date_end,
+    end_date,
+    start_date,
     duration,
+    mainImage,
+    post_title,
+    subtitle,
     price,
-    summary,
     programa,
-  } = mock_retiros[0];
+    intro,
+    other_info,
+  } = workshop;
+
   const [formattedDate, setFormattedDate] = useState("");
   const ctx = useContext(LangContext);
 
   useEffect(() => {
+    const endDateTS = new Date(end_date.utc).getTime();
+    const startDateTS = new Date(start_date.utc).getTime();
     const final =
-      date_end && duration > 1
-        ? `${getMD(date_start)} - ${getMD(date_end)}`
-        : getMD(date_start);
+      endDateTS && duration > 1
+        ? `${getMD(startDateTS)} — ${getMD(endDateTS)}`
+        : getMD(startDateTS);
     setFormattedDate(final);
-  }, [date_start]);
+  }, [workshop]);
 
   return (
     <div>
@@ -34,15 +72,15 @@ const Retiro = () => {
         <div className="container bg-beige flex flex-col md:flex-row min-h-80v md:min-h-70v p-0 ">
           <div
             className="bg-center bg-cover flex-1 md:flex-none md:w-7/12"
-            style={{ backgroundImage: `url(${img})` }}
+            style={{ backgroundImage: `url(${urlFor(mainImage)})` }}
           />
           <div className="p-3 md:p-6 flex  flex-col justify-between">
             <div className="mb-10">
               <h1 className="title font-normal text-xxl md:text-xxxl mb-1 md:mb-3">
-                {title}
+                {post_title[ctx.locale]}
               </h1>
               <h2 className="title font-extralight text-xxl md:text-xxxl">
-                {subtitle}
+                {subtitle[ctx.locale]}
               </h2>
             </div>
             <div>
@@ -68,31 +106,31 @@ const Retiro = () => {
       {/* SCHEDULE */}
       <section className="mb-10 md:mb-20">
         <div className="container p-0">
-          <div className="p-5 md:p-0 md:w-5/12">
-            <p className="font-light mb-5">{summary}</p>
+          <div className="p-5 md:p-0 md:w-5/12 ">
+            <p className="font-light mb-5">{intro[ctx.locale]}</p>
             <h2 className="title mb-5">{translate("programa")}</h2>
             {programa &&
-              programa.length &&
-              programa.map((el, i) => (
-                <div className="mb-5" key={title + "table" + i}>
-                  <h3 className="mb-2">
-                    {getFormattedDDMM(el.date, ctx.locale)}
-                  </h3>
+              Object.values(programa).length &&
+              Object.values(programa).map((el, i) => (
+                <div className="mb-5" key={"table" + i}>
+                  <h3 className="mb-2">{el.activity_date}</h3>
                   <table>
-                    {el.schedule.map((item, trI) => (
-                      <tr key={title + "table" + i + trI}>
+                    {el.activities.map((item, trI) => (
+                      <tr key={"table" + i + trI}>
                         <td className="font-thin align-top pr-5 whitespace-nowrap">
-                          {item.time}
+                          {item.activity}
                         </td>
                         <td className="font-light align-top">
-                          {item.description}
+                          {item.start_time} - {item.end_time}
                         </td>
                       </tr>
                     ))}
                   </table>
                 </div>
               ))}
-            <p className="font-light">Outras infos</p>
+            <div className="font-light mt-10 prose">
+              <BlockContent blocks={other_info[ctx.locale]} />
+            </div>
           </div>
         </div>
       </section>

@@ -1,3 +1,9 @@
+import imageUrlBuilder from "@sanity/image-url";
+import sanity from "../lib/sanity";
+
+const builder = imageUrlBuilder(sanity);
+export const urlFor = src => builder.image(src).url();
+
 export const renameObjectKeysWithPrefix = (obj, prefix) => {
   const newObj = {};
   Object.keys(obj).map(key => (newObj[prefix + key] = obj[key]));

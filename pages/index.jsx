@@ -26,7 +26,7 @@ export default function Home() {
                 {translate("home-hero-circle")}
               </h2>
               <div>
-                <Link href="/retiros">
+                <Link href="/workshop">
                   <button className="btn btn-outline text-xxs py-1 px-1">
                     {translate("btn-know-more")}
                   </button>
