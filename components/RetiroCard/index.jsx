@@ -1,11 +1,8 @@
 import { useEffect, useState, useContext } from "react";
 import Link from "next/link";
-import Image from "next/Image";
-import imageUrlBuilder from "@sanity/image-url";
 import translate from "../../i18n/translate";
 import { getMD, urlFor } from "../../utils";
 import { LangContext } from "../../pages/_app";
-import sanity from "../../lib/sanity";
 
 const RetiroCard = ({ item }) => {
   const {
