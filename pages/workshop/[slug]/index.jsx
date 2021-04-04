@@ -120,7 +120,7 @@ const Retiro = ({ workshop }) => {
                         <td className="font-thin align-top pr-5 whitespace-nowrap">
                           {item.activity}
                         </td>
-                        <td className="font-light align-top">
+                        <td className="font-light align-top min-w-20v md:min-w-none">
                           {item.start_time} - {item.end_time}
                         </td>
                       </tr>

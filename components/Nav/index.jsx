@@ -63,7 +63,7 @@ function Nav() {
               key={item + i}
               className={`${
                 router.pathname === item ? "font-bold" : undefined
-              } text-xs mr-5 hidden md:block`}
+              } text-xs mr-5 hidden md:block hover:underline`}
             >
               <Link href={`/${item}`}>
                 <a> {translate(item)}</a>
